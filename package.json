@@ -4,7 +4,10 @@
   "description": "About You Cleaning",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "yarn clean && cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "build:dev": "yarn clean && cross-env NODE_ENV=development webpack --config webpack.dev.js && webpack-dev-server --config webpack.dev.js",
+    "clean": "node cleandist.js",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,34 @@
   "bugs": {
     "url": "https://github.com/mkworldsolutions/aboutyoucleaning/issues"
   },
-  "homepage": "https://github.com/mkworldsolutions/aboutyoucleaning#readme"
+  "homepage": "https://github.com/mkworldsolutions/aboutyoucleaning#readme",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "simply-requests": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.6.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.1",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "fs-extra": "^7.0.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
 }
